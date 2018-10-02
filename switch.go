@@ -6,10 +6,9 @@ import (
 	"log"	
 )
 
-func render(page string) string // e.g func render("index") {
+func render(page string) string {
 	temp, err = template.ParseFile(page + ".html")
-	
-	if err {
+	if err != nil {
 		log.Fatal("The template doesn't existing...")
 	}
 	temp.ExecuteTemplate(w, page, data)
@@ -18,9 +17,8 @@ func render(page string) string // e.g func render("index") {
 func main() {
 	router := httprouter.New()
 	router.GET("/", func(w http.ResponseWriter, req *http.Request) {
-		/* checking the currently paths */
+		/* checking the current paths */
 		path := req.URL.path
-		/* switching path */
 
 		switch path {
 		case "/hello":
@@ -33,7 +31,6 @@ func main() {
 			render("index")
 			break;
 		default:
-			// if path is another than other of paths rendering a index page
 			render("index")
 			break;			
 		}
