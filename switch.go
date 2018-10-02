@@ -6,7 +6,7 @@ import (
 	"log"	
 )
 
-func render(page) // e.g func render("index") {
+func render(page string) string // e.g func render("index") {
 	temp, err = template.ParseFile(page + ".html")
 	
 	if err {
