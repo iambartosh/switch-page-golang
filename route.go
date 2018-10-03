@@ -9,7 +9,7 @@ import (
 /* or 
 	* func() HTMLRender(page, w http.ResponseWriter, r *http.Request)
 */
-func (page) HTMLRender(w http.ResponseWriter, r *http.Request) {
+func (page string) HTMLRender(w http.ResponseWriter, r *http.Request) string {
 	temp, err := template.ParseFile(page + ".html")
 	if err != nil {
 		http.NotFound(w, r)
